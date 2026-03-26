@@ -2,19 +2,18 @@
 
 from ultralytics import YOLO
 
-# 2. Cargar modelo base (Transfer Learning) [cite: 311, 347, 582]
+# 2. Cargar modelo base (Transfer Learning)
 model = YOLO('yolov8n.pt')
+#model = YOLO('yolo26n.pt') Para usar Yolo26
 
-# 3. Entrenar [cite: 19, 153, 579]
+# 3. Entrenar
 # Esto creará una carpeta 'runs/detect/train/weights/best.pt'
 model.train(data='config.yaml', epochs=50, imgsz=640)
 
-# 4. CARGAR TU MODELO ENTRENADO (Paso clave)
-# No uses el 'yolov8n.pt' para el video, usa el que acabas de generar
+# 4. CARGAR MODELO ENTRENADO (Paso clave)
 model = YOLO('runs/detect/train/weights/best.pt')
 
-
-# 5. Procesar el video y generar el output marcado [cite: 79, 188, 591]
+# 5. Procesar el video y generar el output marcado 
 results = model.predict(
     source='4.avi',
     save=True,

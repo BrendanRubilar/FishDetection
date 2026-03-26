@@ -1,0 +1,9 @@
+path: /content/dataset
+train: images
+val: images
+
+# Asegúrate de que 'names' esté pegado al margen izquierdo
+# y que las clases tengan 2 espacios de sangría
+names:
+  0: Pez
+  1: Agua
